@@ -1,19 +1,34 @@
 <template>
-  <view class="content">
-    <Tabber />
-	1
+  <view>
+    <view class="content">
+      <view class="" v-if="currentPage == '/pages/index'">首页</view>
+      <view class="" v-if="currentPage == '/pages/classify'">分类</view>
+      <view class="" v-if="currentPage == '/pages/points'">积分</view>
+      <view class="" v-if="currentPage == '/pages/cart'">购物车</view>
+      <view class="" v-if="currentPage == '/pages/my'">我的</view>
+    </view>
+    <Tabber @switchPage="switchPage" />
   </view>
 </template>
 
 <script>
+import Tabber from "@/components/tabber/tabber.vue"
 export default {
+  components: {
+    Tabber
+  },
   data() {
     return {
+      currentPage: "/pages/index",
       title: "Hello"
     }
   },
   onLoad() {},
-  methods: {}
+  methods: {
+    switchPage(e) {
+      this.currentPage = e.page
+    }
+  }
 }
 </script>
 

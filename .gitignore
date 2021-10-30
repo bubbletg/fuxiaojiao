@@ -16,10 +16,6 @@ selenium-debug.log
 .vscode
 .history
 .hbuilderx
-<<<<<<< HEAD
-=======
-
->>>>>>> 1.0.0-dev
 *.suo
 *.ntvs*
 *.njsproj

@@ -3,9 +3,6 @@ import App from './App'
 // #ifndef VUE3
 import Vue from 'vue'
 
-import Tabber from "@/components/tabber/tabber.vue"
-
-Vue.component("tabber", Tabber)
 Vue.config.productionTip = false
 
 App.mpType = 'app'
