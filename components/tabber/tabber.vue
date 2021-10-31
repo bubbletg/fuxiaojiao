@@ -34,7 +34,7 @@ export default {
           name: "首页",
           icon: "cuIcon-homefill",
           active: true,
-          page: "/pages/index",
+          page: "/pages/home",
           cuTag: "" // 标签类型
         },
         {

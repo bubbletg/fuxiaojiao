@@ -1,7 +1,7 @@
 <template>
   <view>
     <view class="content">
-      <view class="" v-if="currentPage == '/pages/index'">首页</view>
+      <Home v-if="currentPage == '/pages/home'" />
       <view class="" v-if="currentPage == '/pages/classify'">分类</view>
       <view class="" v-if="currentPage == '/pages/points'">积分</view>
       <view class="" v-if="currentPage == '/pages/cart'">购物车</view>
@@ -12,18 +12,19 @@
 </template>
 
 <script>
+import Home from "@/pages/home/home.vue"
 import Tabber from "@/components/tabber/tabber.vue"
 export default {
   components: {
+    Home,
     Tabber
   },
   data() {
     return {
-      currentPage: "/pages/index",
+      currentPage: "/pages/home",
       title: "Hello"
     }
   },
-  onLoad() {},
   methods: {
     switchPage(e) {
       this.currentPage = e.page
