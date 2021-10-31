@@ -1,12 +1,10 @@
 <template>
-  <view>
-    <view class="content">
-      <Home v-if="currentPage == '/pages/home'" />
-      <view class="" v-if="currentPage == '/pages/classify'">分类</view>
-      <view class="" v-if="currentPage == '/pages/points'">积分</view>
-      <view class="" v-if="currentPage == '/pages/cart'">购物车</view>
-      <view class="" v-if="currentPage == '/pages/my'">我的</view>
-    </view>
+  <view style="margin-bottom:calc(100upx + env(safe-area-inset-bottom) / 2);">
+    <Home v-if="currentPage == '/pages/home'" />
+    <view class="" v-if="currentPage == '/pages/classify'">分类</view>
+    <view class="" v-if="currentPage == '/pages/points'">积分</view>
+    <view class="" v-if="currentPage == '/pages/cart'">购物车</view>
+    <view class="" v-if="currentPage == '/pages/my'">我的</view>
     <Tabber @switchPage="switchPage" />
   </view>
 </template>

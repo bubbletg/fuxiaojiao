@@ -1,7 +1,7 @@
 <template>
   <view>
-    <HSwiper @enterInto="enterIntoSwiper" />
-    <ShopsList @ceshi01="ceshi02" />
+    <HSwiper />
+    <ShopsList />
   </view>
 </template>
 
@@ -17,11 +17,9 @@ export default {
     return {}
   },
   methods: {
-    enterIntoSwiper(item) {
-      console.log(item)
-    }
   }
 }
 </script>
 
-<style></style>
+<style>
+</style>

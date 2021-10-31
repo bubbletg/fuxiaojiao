@@ -1,13 +1,10 @@
 <template>
-  <view class="swiper-wrap">
+  <view>
     <swiper
-      class="card-swiper"
-      :class="dotStyle ? 'square-dot' : 'round-dot'"
+      class="card-swiper square-dot"
       :indicator-dots="true"
       :circular="true"
       :autoplay="true"
-      interval="5000"
-      duration="500"
       @change.stop.prevent="cardSwiper"
       indicator-color="#8799a3"
       indicator-active-color="#0081ff"
@@ -41,12 +38,6 @@
 
 <script>
 export default {
-  props: {
-    // swiperList: {
-    //   type: Array,
-    //   default: () => []
-    // }
-  },
   data() {
     return {
       cardCur: 0,
@@ -78,19 +69,15 @@ export default {
       ]
     }
   },
-  created() {
-    this.TowerSwiper("swiperList")
-  },
   methods: {
     enterInto(item) {
-      this.$emit("enterInto", item)
+      console.log(item)
     },
     cardSwiper(e) {
       this.cardCur = e.detail.current
-    },
+    }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
