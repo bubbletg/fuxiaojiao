@@ -11,10 +11,15 @@
     }
   ],
   "globalStyle": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "mp-alipay": {
+      /* 支付宝小程序特有相关 */
+      "transparentTitle": "always",
+      "allowsBounceVertical": "NO"
+    },
+    "navigationBarBackgroundColor": "#0081ff",
+    "navigationBarTitleText": "福小饺",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
   },
   "condition": {
     //模式配置，仅开发期间生效
@@ -22,7 +27,7 @@
     "list": [
       {
         "name": "首页", //模式名称
-        "path": "pages/index/index", //启动页面
+        "path": "pages/merchant/merchant", //启动页面
         "query": "" //启动参数
       }
     ]

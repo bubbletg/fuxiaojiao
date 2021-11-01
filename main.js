@@ -3,6 +3,10 @@ import App from './App'
 // #ifndef VUE3
 import Vue from 'vue'
 
+import cuCustom from "./colorui/components/cu-custom.vue"
+Vue.component("cu-custom", cuCustom)
+
+
 Vue.config.productionTip = false
 
 App.mpType = 'app'
