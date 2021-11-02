@@ -1,5 +1,8 @@
 <script>
+import { myCommonColor } from "./global"
 import Vue from "vue"
+Vue.prototype.myCommonColor = myCommonColor
+
 export default {
   onLaunch: function () {
     uni.getSystemInfo({

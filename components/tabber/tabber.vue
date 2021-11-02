@@ -1,10 +1,10 @@
 <template>
   <view class="box">
-    <view class="cu-bar tabbar" :class="tabBgColor">
-      <view v-for="(item, index) in tabList" :key="index">
+    <view class="cu-bar tabbar flex" :class="themeColor?`bg-${themeColor}`:'bg-black'">
+      <view v-for="(item, index) in tabList" :key="index" class="flex-sub">
         <view
           class="action"
-          :class="item.active ? 'text-orange' : 'text-gray'"
+          :class="item.active ? 'text-orange' : 'text-withe'"
           @click="switchTab(index)"
         >
           <view :class="item.icon">
@@ -24,11 +24,10 @@
 </template>
 
 <script>
-import { GLOBAL_BACKGROUND_COLOR } from "@/global.js"
 export default {
   data() {
     return {
-      tabBgColor: GLOBAL_BACKGROUND_COLOR,
+      themeColor: this.myCommonColor.themeColor,
       tabList: [
         {
           name: "首页",
@@ -37,27 +36,28 @@ export default {
           page: "/pages/home",
           cuTag: "" // 标签类型
         },
-        {
-          name: "分类",
-          icon: "cuIcon-similar",
-          active: false,
-          page: "/pages/classify",
-          cuTag: ""
-        },
-        {
-          name: "积分",
-          icon: "cuIcon-recharge",
-          active: false,
-          page: "/pages/points",
-          cuTag: ""
-        },
-        {
-          name: "购物车",
-          icon: "cuIcon-cart",
-          active: false,
-          page: "/pages/cart",
-          cuTag: "badge"
-        },
+        //  todo 第一版先不做
+        // {
+        //   name: "分类",
+        //   icon: "cuIcon-similar",
+        //   active: false,
+        //   page: "/pages/classify",
+        //   cuTag: ""
+        // },
+        // {
+        //   name: "积分",
+        //   icon: "cuIcon-recharge",
+        //   active: false,
+        //   page: "/pages/points",
+        //   cuTag: ""
+        // },
+        // {
+        //   name: "购物车",
+        //   icon: "cuIcon-cart",
+        //   active: false,
+        //   page: "/pages/cart",
+        //   cuTag: "badge"
+        // },
         {
           name: "我的",
           icon: "cuIcon-my",

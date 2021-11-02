@@ -27,14 +27,15 @@
     "list": [
       {
         "name": "首页", //模式名称
-        "path": "pages/merchant/merchant", //启动页面
+        "path": "pages/index/index",
         "query": "" //启动参数
       },
       {
         "name": "首页", //模式名称
-        "path": "pages/index/index",
+        "path": "pages/merchant/merchant", //启动页面
         "query": "" //启动参数
       }
+      
     ]
   }
 }
