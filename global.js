@@ -1,4 +1,4 @@
-// 背景颜色
-const GLOBAL_BACKGROUND_COLOR = "bg-black"
+export const myCommonColor = {
+  themeColor: "mauve"
+}
 
-export { GLOBAL_BACKGROUND_COLOR }

@@ -2,12 +2,17 @@ import App from './App'
 
 // #ifndef VUE3
 import Vue from 'vue'
+import { myCommonColor } from "./global"
 
 import cuCustom from "./colorui/components/cu-custom.vue"
+
 Vue.component("cu-custom", cuCustom)
 
 
 Vue.config.productionTip = false
+
+Vue.prototype.myCommonColor = myCommonColor
+
 
 App.mpType = 'app'
 

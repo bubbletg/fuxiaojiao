@@ -7,7 +7,7 @@
         <block slot="content">垂直导航</block>
       </cu-custom>
     </view>
-    <view style="margin-bottom: calc(100upx + env(safe-area-inset-bottom) / 2)">
+    <view style="margin-bottom: calc(160upx + env(safe-area-inset-bottom) / 2)">
       <!-- 轮播图 -->
       <swiper
         class="screen-swiper round-dot"
@@ -60,30 +60,7 @@
                 }}</view
               >
             </view>
-            <view class="cu-list menu-avatar">
-              <view class="cu-item">
-                <view
-                  class="cu-avatar radius lg"
-                  style="
-                    background-image: url('../../static/swiper/123213.jpg');
-                  "
-                ></view>
-                <view class="content">
-                  <view class="text-pink"
-                    ><text class="text-cut">莫甘娜</text></view
-                  >
-                  <view class="text-gray text-sm flex">
-                    <text class="text-cut"
-                      >凯尔，你被自己的光芒变的盲目！</text
-                    ></view
-                  >
-                </view>
-                <view class="action">
-                  <view class="text-grey text-xs">22:20</view>
-                  <view class="cu-tag round bg-red sm">5</view>
-                </view>
-              </view>
-            </view>
+            <Goods />
           </view>
         </scroll-view>
       </view>
@@ -94,10 +71,12 @@
 
 <script>
 import Cart from './components/cart.vue'
+import Goods from './components/goods.vue'
 
 export default {
   components: {
-    Cart
+    Cart,
+    Goods
   },
   data() {
     return {
