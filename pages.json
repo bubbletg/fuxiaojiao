@@ -10,6 +10,10 @@
       "style": {}
     },
     {
+      "path":"pages/calendar/calendar",
+      "style": {}
+    },
+    {
       "path": "pages/my/my",
       "style": {}
     }

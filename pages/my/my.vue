@@ -26,7 +26,7 @@
         class="cu-item arrow"
         v-for="(item, index) in menu"
         :key="index"
-        @click="into(item.to)"
+        @click="enterInto(item.to)"
       >
         <view class="content">
           <text
@@ -68,8 +68,29 @@ export default {
           iconColor: this.themeColor,
           title: "我的预订",
           lable: "查看我的预订",
+          to: "/pages/calendar/calendar"
+        },
+        {
+          icon: "location",
+          iconColor: this.themeColor,
+          title: "我的地址",
+          lable: "查看我的地址",
           to: "/my/my"
         }
+        // {
+        //   icon: "location",
+        //   iconColor: this.themeColor,
+        //   title: "我的收藏",
+        //   lable: "查看我的地址",
+        //   to: "/my/my"
+        // },
+        //  {
+        //   icon: "location",
+        //   iconColor: this.themeColor,
+        //   title: "我的评价",
+        //   lable: "查看我的地址",
+        //   to: "/my/my"
+        // },
       ]
       menuList[1] = [
         {
@@ -97,9 +118,18 @@ export default {
       this.menuList = menuList
     },
     enterInto(to) {
-      uni.navigateTo({
-        url: to
-      })
+      const list = ["/pages/calendar/calendar"]
+      if (list.indexOf(to) > -1) {
+        const tos = to.split("/")
+        const obj = {
+          page: `/${tos[1]}/${tos[2]}`
+        }
+        this.$emit("switchPage", obj)
+      } else {
+        uni.navigateTo({
+          url: to
+        })
+      }
     }
   }
 }

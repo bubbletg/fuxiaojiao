@@ -6,10 +6,10 @@
       <Home v-if="currentPage == '/pages/home'" />
       <view class="" v-if="currentPage == '/pages/classify'">分类</view>
       <view class="" v-if="currentPage == '/pages/points'">积分</view>
-      <view class="" v-if="currentPage == '/pages/cart'">购物车</view>
-      <My class="" v-if="currentPage == '/pages/my'" />
+      <Calendar v-if="currentPage == '/pages/calendar'" />
+      <My class="" v-if="currentPage == '/pages/my'" @switchPage="switchPage" />
     </view>
-    <Tabber @switchPage="switchPage" />
+    <Tabber @switchPage="switchPage" :currentPage="currentPage"/>
   </view>
 </template>
 
@@ -17,11 +17,13 @@
 import CuCustom from "@/components/cu-custom.vue"
 import Home from "@/pages/home/home.vue"
 import My from "@/pages/my/my.vue"
+import Calendar from "@/pages/calendar/calendar.vue"
 import Tabber from "@/components/tabber/tabber.vue"
 export default {
   components: {
     Home,
     My,
+    Calendar,
     Tabber,
     CuCustom
   },
@@ -29,6 +31,7 @@ export default {
     return {
       currentPage: "/pages/my",
       title: "Hello",
+      tabCurrentIndex: 0, // 默认底部初始索引
       themeColor: this.myCommonColor.themeColor // 全局主题
     }
   },

@@ -25,6 +25,12 @@
 
 <script>
 export default {
+  props: {
+    currentPage:{
+      type:String,
+      default:''
+    }
+  },
   data() {
     return {
       themeColor: this.myCommonColor.themeColor,
@@ -51,13 +57,13 @@ export default {
         //   page: "/pages/points",
         //   cuTag: ""
         // },
-        // {
-        //   name: "购物车",
-        //   icon: "cuIcon-cart",
-        //   active: false,
-        //   page: "/pages/cart",
-        //   cuTag: "badge"
-        // },
+        {
+          name: "订单",
+          icon: "cuIcon-calendar",
+          active: false,
+          page: "/pages/calendar",
+          cuTag: ""
+        },
         {
           name: "我的",
           icon: "cuIcon-my",
@@ -67,6 +73,19 @@ export default {
         }
       ],
       carTNum: 1
+    }
+  },
+  watch: {
+    currentPage(){
+       const list = this.tabList
+      list.forEach((item, i) => {
+        if (item.page === this.currentPage) {
+          item.active = true
+        } else {
+          item.active = false
+        }
+      })
+      this.tabList = list
     }
   },
   methods: {
