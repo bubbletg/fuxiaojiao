@@ -1,5 +1,7 @@
 <template>
   <view>
+    <CuCustom bgColor="bg-shadeTop text-white">
+    </CuCustom>
     <view style="margin-bottom: calc(100upx + env(safe-area-inset-bottom) / 2)">
       <Home v-if="currentPage == '/pages/home'" />
       <view class="" v-if="currentPage == '/pages/classify'">分类</view>
@@ -14,10 +16,12 @@
 <script>
 import Home from "@/pages/home/home.vue"
 import Tabber from "@/components/tabber/tabber.vue"
+import CuCustom from "@/components/cu-custom.vue"
 export default {
   components: {
     Home,
-    Tabber
+    Tabber,
+    CuCustom
   },
   data() {
     return {
