@@ -1,32 +1,35 @@
 <template>
   <view>
-    <CuCustom bgColor="bg-shadeTop text-white">
+    <CuCustom :bgColor="`bg-${themeColor} text-white`" >
     </CuCustom>
     <view style="margin-bottom: calc(100upx + env(safe-area-inset-bottom) / 2)">
       <Home v-if="currentPage == '/pages/home'" />
       <view class="" v-if="currentPage == '/pages/classify'">分类</view>
       <view class="" v-if="currentPage == '/pages/points'">积分</view>
       <view class="" v-if="currentPage == '/pages/cart'">购物车</view>
-      <view class="" v-if="currentPage == '/pages/my'">我的</view>
+      <My class="" v-if="currentPage == '/pages/my'" />
     </view>
     <Tabber @switchPage="switchPage" />
   </view>
 </template>
 
 <script>
-import Home from "@/pages/home/home.vue"
-import Tabber from "@/components/tabber/tabber.vue"
 import CuCustom from "@/components/cu-custom.vue"
+import Home from "@/pages/home/home.vue"
+import My from "@/pages/my/my.vue"
+import Tabber from "@/components/tabber/tabber.vue"
 export default {
   components: {
     Home,
+    My,
     Tabber,
     CuCustom
   },
   data() {
     return {
-      currentPage: "/pages/home",
-      title: "Hello"
+      currentPage: "/pages/my",
+      title: "Hello",
+      themeColor: this.myCommonColor.themeColor // 全局主题
     }
   },
   methods: {
@@ -37,7 +40,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .content {
   display: flex;
   flex-direction: column;

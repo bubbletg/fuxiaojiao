@@ -8,6 +8,10 @@
     {
       "path": "pages/merchant/merchant",
       "style": {}
+    },
+    {
+      "path": "pages/my/my",
+      "style": {}
     }
   ],
   "globalStyle": {
@@ -35,7 +39,6 @@
         "path": "pages/merchant/merchant", //启动页面
         "query": "" //启动参数
       }
-      
     ]
   }
 }
