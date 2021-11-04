@@ -1,15 +1,18 @@
 <template>
   <view>
-    <CuCustom :bgColor="`bg-${themeColor} text-white`" >
-    </CuCustom>
+    <CuCustom :bgColor="`bg-${themeColor} text-white`"> </CuCustom>
     <view style="margin-bottom: calc(100upx + env(safe-area-inset-bottom) / 2)">
       <Home v-if="currentPage == '/pages/home'" />
       <view class="" v-if="currentPage == '/pages/classify'">分类</view>
       <view class="" v-if="currentPage == '/pages/points'">积分</view>
-      <Calendar v-if="currentPage == '/pages/calendar'" />
+      <Order v-if="currentPage == '/pages/order'" />
       <My class="" v-if="currentPage == '/pages/my'" @switchPage="switchPage" />
     </view>
-    <Tabber @switchPage="switchPage" :currentPage="currentPage"/>
+    <Tabber
+      :tabList="tabList"
+      @switchPage="switchPage"
+      :currentPage="currentPage"
+    />
   </view>
 </template>
 
@@ -17,25 +20,68 @@
 import CuCustom from "@/components/cu-custom.vue"
 import Home from "@/pages/home/home.vue"
 import My from "@/pages/my/my.vue"
-import Calendar from "@/pages/calendar/calendar.vue"
+import Order from "@/pages/order/order.vue"
 import Tabber from "@/components/tabber/tabber.vue"
 export default {
   components: {
     Home,
     My,
-    Calendar,
+    Order,
     Tabber,
     CuCustom
   },
   data() {
     return {
-      currentPage: "/pages/my",
+      tabList: [],
+      currentPage: "/pages/order",
       title: "Hello",
-      tabCurrentIndex: 0, // 默认底部初始索引
       themeColor: this.myCommonColor.themeColor // 全局主题
     }
   },
+  created() {
+    this.init()
+  },
   methods: {
+    init() {
+      this.tabList = [
+        {
+          name: "首页",
+          icon: "cuIcon-homefill",
+          active: true,
+          page: "/pages/home",
+          cuTag: "" // 标签类型
+        },
+        //  todo 第一版先不做
+        // {
+        //   name: "分类",
+        //   icon: "cuIcon-similar",
+        //   active: false,
+        //   page: "/pages/classify",
+        //   cuTag: ""
+        // },
+        // {
+        //   name: "积分",
+        //   icon: "cuIcon-recharge",
+        //   active: false,
+        //   page: "/pages/points",
+        //   cuTag: ""
+        // },
+        {
+          name: "订单",
+          icon: "cuIcon-calendar",
+          active: false,
+          page: "/pages/order",
+          cuTag: ""
+        },
+        {
+          name: "我的",
+          icon: "cuIcon-my",
+          active: false,
+          page: "/pages/my",
+          cuTag: ""
+        }
+      ]
+    },
     switchPage(e) {
       this.currentPage = e.page
     }

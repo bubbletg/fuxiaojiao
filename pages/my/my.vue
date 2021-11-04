@@ -6,7 +6,7 @@
     >
       <view
         class="cu-avatar xl round margin-left margin-right-xs"
-        :style="[`background-image: url(${headerImg});`]"
+        :style="{ backgroundImage: `url(${headerImg});` }"
       >
       </view>
       <view class="my-nickname" v-if="isLogin">
