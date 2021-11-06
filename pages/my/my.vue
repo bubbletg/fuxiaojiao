@@ -68,7 +68,7 @@ export default {
           iconColor: this.themeColor,
           title: "我的预订",
           lable: "查看我的预订",
-          to: "/pages/calendar/calendar"
+          to: "/pages/order/order"
         },
         {
           icon: "location",
@@ -118,7 +118,8 @@ export default {
       this.menuList = menuList
     },
     enterInto(to) {
-      const list = ["/pages/calendar/calendar"]
+      // 底部状态栏切换列表，不进入二级页面
+      const list = ["/pages/order/order"]
       if (list.indexOf(to) > -1) {
         const tos = to.split("/")
         const obj = {

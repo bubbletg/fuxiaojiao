@@ -63,7 +63,7 @@ export default {
         {
           id: 3,
           type: "image",
-          url: "../../static/swiper/m7.png",
+          url: "../../static/swiper/123213.png",
           enterType: "pages"
         }
       ]

@@ -5,6 +5,8 @@ import Vue from 'vue'
 
 Vue.config.productionTip = false
 
+import CuCustom from "@/components/cu-custom.vue"
+Vue.component("CuCustom", CuCustom)
 
 
 App.mpType = 'app'

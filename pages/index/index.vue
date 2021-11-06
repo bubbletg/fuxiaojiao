@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import CuCustom from "@/components/cu-custom.vue"
 import Home from "@/pages/home/home.vue"
 import My from "@/pages/my/my.vue"
 import Order from "@/pages/order/order.vue"
@@ -27,8 +26,7 @@ export default {
     Home,
     My,
     Order,
-    Tabber,
-    CuCustom
+    Tabber
   },
   data() {
     return {

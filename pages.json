@@ -14,6 +14,10 @@
       "style": {}
     },
     {
+      "path": "pages/order/orderDetails",
+      "style": {}
+    },
+    {
       "path": "pages/my/my",
       "style": {}
     }
@@ -35,7 +39,7 @@
     "list": [
       {
         "name": "首页", //模式名称
-        "path": "pages/index/index",
+        "path": "pages/order/orderDetails",
         "query": "" //启动参数
       },
       {

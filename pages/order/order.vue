@@ -19,8 +19,8 @@
               ></view>
               <view class="order-list-item-title">
                 <viem class="text-lg">
-                  {{ item.title
-                  }}<text
+                  {{ item.title }}
+                  <text
                     class="xs text-black cuIcon-right margin-left-xs"
                   ></text>
                 </viem>
@@ -58,7 +58,7 @@
           </view>
           <!-- 底部 -->
           <view class="flex justify-end margin-top-sm">
-            <button class="cu-btn round line-mauve">再来一单</button>
+            <button class="cu-btn round line-mauve shadow sm" @click="clickRecur(item)" >再来一单</button>
           </view>
         </view>
       </view>
@@ -154,6 +154,11 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    clickRecur(item){
+    console.log('`````````````',item)
+  }
   }
 }
 </script>

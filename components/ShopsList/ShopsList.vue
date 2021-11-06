@@ -8,7 +8,7 @@
         :key="index"
       >
         <view class="content">
-          <image :src="item.shopImg" mode="aspectFill"></image>
+          <image class="image" :src="item.shopImg" mode="aspectFill"></image>
           <view class="desc">
             <view class="title text-cut">{{ item.title }}</view>
             <view class="text-sm margin-top-xs">
@@ -219,7 +219,7 @@ export default {
     .content {
       padding: 0;
       flex-direction: row;
-      image {
+      .image {
         width: 180upx;
       }
       .title {
