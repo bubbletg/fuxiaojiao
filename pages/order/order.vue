@@ -7,6 +7,7 @@
       <view
         class="cu-card case"
         v-for="(item, index) in orderList"
+        @click="navigateTo('/pages/order/orderDetails')"
         :key="index"
       >
         <view class="cu-item shadow padding-sm">
@@ -25,7 +26,9 @@
                   ></text>
                 </viem>
                 <text class="text-xs text-black">{{ item.hint }}</text>
-                <text class="text-xs text-black" v-if="index===0">{{ item.hint }}</text>
+                <text class="text-xs text-black" v-if="index === 0">{{
+                  item.hint
+                }}</text>
               </view>
             </view>
             <view class="text-gray"> 已完成 </view>
@@ -58,7 +61,12 @@
           </view>
           <!-- 底部 -->
           <view class="flex justify-end margin-top-sm">
-            <button class="cu-btn round line-mauve shadow sm" @click="clickRecur(item)" >再来一单</button>
+            <button
+              class="cu-btn round line-mauve shadow sm"
+              @click.stop="clickRecur(item)"
+            >
+              再来一单
+            </button>
           </view>
         </view>
       </view>
@@ -156,16 +164,19 @@ export default {
     }
   },
   methods: {
-    clickRecur(item){
-    console.log('`````````````',item)
-  }
+    navigateTo(url) {
+      uni.navigateTo({ url })
+    },
+    clickRecur(item) {
+      console.log("`````````````", item)
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .order-list {
-  height:75vh;
+  height: 75vh;
   .cu-card > .cu-item {
     margin: 10upx 20upx;
   }

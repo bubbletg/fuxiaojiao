@@ -6,6 +6,7 @@
       :circular="true"
       :autoplay="true"
       @change.stop.prevent="cardSwiper"
+      v-if="swiperList.length > 0"
       indicator-color="#8799a3"
       indicator-active-color="#0081ff"
     >
@@ -38,35 +39,15 @@
 
 <script>
 export default {
+  props: {
+    swiperList: {
+      type:Array,
+      default: () => []
+    }
+  },
   data() {
     return {
       cardCur: 0,
-      swiperList: [
-        {
-          id: 0,
-          type: "image",
-          url: "../../static/swiper/244.jpg",
-          enterType: "shops"
-        },
-        {
-          id: 1,
-          type: "image",
-          url: require("../../static/swiper/3435.jpg"),
-          enterType: "shops"
-        },
-        {
-          id: 2,
-          type: "image",
-          url: "../../static/swiper/123213.jpg",
-          enterType: "shops"
-        },
-        {
-          id: 3,
-          type: "image",
-          url: "../../static/swiper/123213.png",
-          enterType: "pages"
-        }
-      ]
     }
   },
   methods: {

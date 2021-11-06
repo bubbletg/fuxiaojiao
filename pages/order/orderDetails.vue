@@ -1,6 +1,6 @@
 <template>
   <view>
-    <CuCustom :bgColor="`bg-${themeColor} text-white`" />
+    <CuCustom :isBack="true" :bgColor="`bg-${themeColor} text-white`" />
     <view class="order-detalis bg-gray">
       <view class="order-detalis-top">
         <text class="order-detalis-top-text">订单已完成</text>

@@ -39,7 +39,7 @@
     "list": [
       {
         "name": "首页", //模式名称
-        "path": "pages/order/orderDetails",
+        "path": "pages/index/index",
         "query": "" //启动参数
       },
       {

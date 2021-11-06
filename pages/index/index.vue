@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       tabList: [],
-      currentPage: "/pages/order",
+      currentPage: "/pages/home",
       title: "Hello",
       themeColor: this.myCommonColor.themeColor // 全局主题
     }
