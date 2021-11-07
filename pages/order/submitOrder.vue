@@ -206,7 +206,7 @@ export default {
   },
   methods: {
     inOrderClick(){
-      uni.navigateTo({ url: '/pages/order/orderDetails' })
+      uni.navigateTo({ url:'/pages/order/orderDetails?backPage=/pages/index/index' })
     },
     // 切换是否配送
     switchDistribution() {

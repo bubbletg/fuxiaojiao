@@ -165,7 +165,7 @@ export default {
   },
   methods: {
     navigateTo(url) {
-      uni.navigateTo({ url })
+      uni.navigateTo({ url})
     },
     clickRecur(item) {
       console.log("`````````````", item)

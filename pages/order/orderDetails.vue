@@ -1,6 +1,7 @@
 <template>
   <view>
-    <CuCustom :isBack="true" :bgColor="`bg-${themeColor} text-white`" />
+    <CuCustom :isBack="true" :bgColor="`bg-${themeColor} text-white`" :backUrl="backUrl">
+    </CuCustom>
     <view class="order-detalis bg-gray">
       <view class="order-detalis-top">
         <text class="order-detalis-top-text">订单已完成</text>
@@ -132,8 +133,12 @@ export default {
         consignee: "田先生",
         phone: 17863273072
       },
+      backUrl: '', // 返回路径
       themeColor: this.myCommonColor.themeColor // 全局主题
     }
+  },
+  onLoad(obj){
+    this.backUrl = obj.backPage
   },
   methods: {
     makePhoneCall(phoneNumber) {
