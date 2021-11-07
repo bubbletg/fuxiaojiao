@@ -14,6 +14,10 @@
       "style": {}
     },
     {
+      "path": "pages/order/submitOrder",
+      "style": {}
+    },
+    {
       "path": "pages/order/orderDetails",
       "style": {}
     },

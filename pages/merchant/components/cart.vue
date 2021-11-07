@@ -60,6 +60,9 @@ export default {
     }
   },
   methods: {
+    inOrderClick(){
+      uni.navigateTo({ url: '/pages/order/submitOrder' })
+    }
   }
 }
 </script>
