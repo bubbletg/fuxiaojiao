@@ -24,6 +24,14 @@
     {
       "path": "pages/my/my",
       "style": {}
+    },
+    {
+      "path": "pages/my/help",
+      "style": {}
+    },
+     {
+      "path": "pages/my/aboutus",
+      "style": {}
     }
   ],
   "globalStyle": {
@@ -43,12 +51,7 @@
     "list": [
       {
         "name": "首页", //模式名称
-        "path": "pages/index/index",
-        "query": "" //启动参数
-      },
-      {
-        "name": "首页", //模式名称
-        "path": "pages/merchant/merchant", //启动页面
+        "path": "pages/my/aboutus",
         "query": "" //启动参数
       }
     ]

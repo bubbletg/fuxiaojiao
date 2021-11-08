@@ -24,8 +24,8 @@
     >
       <view
         class="cu-item arrow"
-        v-for="(item, index) in menu"
-        :key="index"
+        v-for="(item) in menu"
+        :key="item.to"
         @click="enterInto(item.to)"
       >
         <view class="content">
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     init() {
-      const menuList = []
+      const menuList = [[],[]]
       menuList[0] = [
         {
           icon: "cartfill",
@@ -69,14 +69,14 @@ export default {
           title: "我的预订",
           lable: "查看我的预订",
           to: "/pages/order/order"
-        },
-        {
-          icon: "location",
-          iconColor: this.themeColor,
-          title: "我的地址",
-          lable: "查看我的地址",
-          to: "/my/my"
         }
+        // {
+        //   icon: "location",
+        //   iconColor: this.themeColor,
+        //   title: "我的地址",
+        //   lable: "查看我的地址",
+        //   to: "/my/my"
+        // }
         // {
         //   icon: "location",
         //   iconColor: this.themeColor,
@@ -98,26 +98,27 @@ export default {
           iconColor: "red",
           title: "管理员入口",
           lable: "",
-          to: "/my/my"
+          to: "/pages/my/aboutus"
         },
         {
           icon: "question",
           iconColor: "green",
           title: "帮助中心",
           lable: "",
-          to: "/my/my"
+          to: "/pages/my/help"
         },
         {
           icon: "group",
           iconColor: "green",
           title: "关于我们",
           lable: "",
-          to: "/my/my"
+          to: "/pages/my/aboutus"
         }
       ]
       this.menuList = menuList
     },
     enterInto(to) {
+        console.log("(122222222111111",to)
       // 底部状态栏切换列表，不进入二级页面
       const list = ["/pages/order/order"]
       if (list.indexOf(to) > -1) {
@@ -127,6 +128,7 @@ export default {
         }
         this.$emit("switchPage", obj)
       } else {
+        console.log("(1111111")
         uni.navigateTo({
           url: to
         })
