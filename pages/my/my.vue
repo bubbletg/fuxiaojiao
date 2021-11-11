@@ -6,15 +6,15 @@
     >
       <view
         class="cu-avatar xl round margin-left margin-right-xs"
-        :style="{ backgroundImage: `url(${headerImg});` }"
+        :style="{ backgroundImage: `url(${userInfo.avatarUrl});` }"
       >
       </view>
       <view class="my-nickname" v-if="isLogin">
-        <text class="margin-bottom-xs">{{ nickname }}</text>
-        <text>ID: {{ id }}</text>
+        <text class="margin-bottom-xs">{{ userInfo.nickName }}</text>
+        <text>ID: {{ userInfo._id }}</text>
       </view>
       <view v-else class="flex flex-direction">
-        <button class="cu-btn bg-pink lg">登录</button>
+        <button class="cu-btn bg-pink lg" @click="getuserinfo">登录</button>
       </view>
     </view>
     <view
@@ -24,7 +24,7 @@
     >
       <view
         class="cu-item arrow"
-        v-for="(item) in menu"
+        v-for="item in menu"
         :key="item.to"
         @click="enterInto(item.to)"
       >
@@ -45,13 +45,17 @@
 </template>
 
 <script>
+import loginMpWx from "@/common/login-mp-wx.js"
 export default {
+  mixins: [loginMpWx],
   data() {
     return {
-      isLogin: true,
-      headerImg: "../../static/shops/house1.png",
-      nickname: "BubbleTg",
-      id: "FXJ1123123",
+      isLogin: false,
+      userInfo: {
+        avatarUrl: "",
+        nickName: "",
+        id: ""
+      },
       menuList: [[], []],
       themeColor: this.myCommonColor.themeColor // 全局主题
     }
@@ -61,7 +65,8 @@ export default {
   },
   methods: {
     init() {
-      const menuList = [[],[]]
+      this.getuserinfo("get")
+      const menuList = [[], []]
       menuList[0] = [
         {
           icon: "cartfill",
@@ -118,7 +123,7 @@ export default {
       this.menuList = menuList
     },
     enterInto(to) {
-        console.log("(122222222111111",to)
+      console.log("(122222222111111", to)
       // 底部状态栏切换列表，不进入二级页面
       const list = ["/pages/order/order"]
       if (list.indexOf(to) > -1) {
@@ -132,6 +137,26 @@ export default {
         uni.navigateTo({
           url: to
         })
+      }
+    },
+    // 获得用户信息
+    /**
+     * type = 0 表示自动判断是否登录，没有登录需要手动触发
+     */
+    getuserinfo(type) {
+      const setuserInfo = userInfo => {
+        this.isLogin = userInfo ? true : false
+        this.userInfo = userInfo
+      }
+      let userInfo = null
+      try {
+        userInfo = JSON.parse(uni.getStorageSync("userInfo"))
+      } catch (err) {
+      } finally {
+        if (type != "get") {
+          this.getUserProfile(setuserInfo)
+        }
+        setuserInfo(userInfo)
       }
     }
   }

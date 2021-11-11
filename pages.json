@@ -51,7 +51,7 @@
     "list": [
       {
         "name": "首页", //模式名称
-        "path": "pages/my/aboutus",
+        "path": "pages/index/index",
         "query": "" //启动参数
       }
     ]

@@ -1,0 +1,21 @@
+{
+	"passwordSecret": "bubbletg-20211111",
+	"tokenSecret": "bubbletg-20211111",
+	"tokenExpiresThreshold": 600,
+	"bindTokenToDevice": false,
+	"passwordErrorLimit": 6,
+	"passwordErrorRetryTime": 3600,
+	"autoSetInviteCode": false,
+	"forceInviteCode": false,
+	"removePermissionAndRoleFromToken": false,
+	"tokenExpiresIn": 259200,
+	"mp-weixin": {
+		"tokenExpiresIn": 259200,
+		"oauth": {
+			"weixin": {
+				"appid": "wxf320951170282772",
+				"appsecret": "72893979b52c0cc07101bdb2fec5a333"
+			}
+		}
+	}
+}
