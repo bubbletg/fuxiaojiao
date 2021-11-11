@@ -11,10 +11,12 @@ export default {
           const userInfo = res.userInfo
           fn(userInfo)
           if (res.code) {
+            msg("登录失败")
             new Error("登录失败！")
+          } else {
+            msg("登陆成功")
+            uni.setStorageSync("userInfo", JSON.stringify(userInfo))
           }
-          msg("登陆成功")
-          uni.setStorageSync("userInfo", JSON.stringify(userInfo))
         }
       })
     },

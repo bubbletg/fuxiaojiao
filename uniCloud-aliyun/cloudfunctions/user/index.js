@@ -1,30 +1,6 @@
 "use strict"
-// const {
-// 	mpWxGetSessionKey
-// } = require('wx-auth')
-
-const db = uniCloud.database()
-const collection = db.collection("user")
-const uniID = require("uni-id")
-
+const Router = require("uni-cloud-router").Router; // 引入 Router
+const router = new Router(require("./config.js")); // 根据 config 初始化 Router
 exports.main = async (event, context) => {
-  const { operation, data } = event
-  // 通过微信登录
-  if (operation === "loginByWeixin") {
-    // 这里会根据code 创建用户信息，并返回
-    const loginInfo = await uniID.loginByWeixin({
-      code: data.code
-    })
-    // 拿到用户信息
-    const { nickName, avatarUrl, openId } = data.userInfo
-    // 把用户信息更新
-    await uniID.updateUser({
-      uid: loginInfo.uid,
-      nickName,
-      avatarUrl,
-      openId
-    })
-    // 查询更新后的
-    return await uniID.getUserInfo({ uid: loginInfo.uid })
-  }
-}
+	return router.serve(event, context); // 由 Router 接管云函数
+};

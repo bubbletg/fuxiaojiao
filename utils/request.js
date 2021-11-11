@@ -13,7 +13,7 @@ const request = (cloudFnName, operation, data = {}, ext = {}) => {
       .callFunction({
         name: cloudFnName,
         data: {
-          operation,
+          action: operation,
           data
         }
       })

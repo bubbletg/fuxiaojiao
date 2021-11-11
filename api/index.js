@@ -7,5 +7,5 @@ import request from "../utils/request.js"
  * @returns {UserInfo} 用户信息
  */
 export const loginByWeixin = async (data, config) => {
-  return await request("user", "loginByWeixin", data, config)
+  return await request("user", "user/userLogin", data, config)
 }
