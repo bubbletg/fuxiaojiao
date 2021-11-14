@@ -46,6 +46,7 @@
 
 <script>
 import loginMpWx from "@/common/login-mp-wx.js"
+import { msg } from "../../utils"
 export default {
   mixins: [loginMpWx],
   data() {
@@ -103,7 +104,7 @@ export default {
           iconColor: "red",
           title: "管理员入口",
           lable: "",
-          to: "/pages/my/aboutus"
+          to: "/pages/admin/index"
         },
         {
           icon: "question",
@@ -123,7 +124,6 @@ export default {
       this.menuList = menuList
     },
     enterInto(to) {
-      console.log("(122222222111111", to)
       // 底部状态栏切换列表，不进入二级页面
       const list = ["/pages/order/order"]
       if (list.indexOf(to) > -1) {
@@ -133,7 +133,10 @@ export default {
         }
         this.$emit("switchPage", obj)
       } else {
-        console.log("(1111111")
+        if (to === "/pages/admin/index" && this.userInfo.role.indexOf("admin") < 0) {
+          msg("没有权限")
+          return
+        }
         uni.navigateTo({
           url: to
         })
